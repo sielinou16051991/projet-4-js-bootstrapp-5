@@ -1,0 +1,8 @@
+.text-hidden {
+  overflow: hidden;
+  height: 300px;
+  text-overflow: ellipsis;
+  white-space: pre-line;
+}
+
+/*# sourceMappingURL=style.css.map */
