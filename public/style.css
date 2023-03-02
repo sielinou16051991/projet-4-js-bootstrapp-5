@@ -5,4 +5,57 @@
   white-space: pre-line;
 }
 
+.hauteur {
+  height: 675%;
+  overflow-y: scroll;
+}
+
+.bg-color1 {
+  background: #3282F7;
+}
+
+.bg-color1-redius {
+  background: #3282F7;
+  border-radius: 5px;
+}
+
+.bg-color2 {
+  background: #68D9A4;
+  border-radius: 5px;
+}
+
+.bg-color3 {
+  background: #ED6454;
+  border-radius: 5px;
+}
+
+.go-left {
+  margin-left: -0.6rem;
+}
+
+.marge-smal-block {
+  margin-left: 0%;
+}
+
+.marge {
+  margin-left: 2.5rem;
+}
+
+.marge-block {
+  margin-left: 11%;
+}
+
+.marge-large {
+  margin-left: 5rem;
+}
+
+.marge-large-block {
+  margin-left: 21.5%;
+}
+
+.p-noWrap {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
 /*# sourceMappingURL=style.css.map */
