@@ -45,7 +45,7 @@
             <section>
                 <div class="row">
                     <div class="d-flex mt-1">
-                        <input class="form-control me-2" id="nameFilter" type="search" onkeyup="myKeyUpFilter()"
+                        <input class="form-control me-2" id="search-filter" type="search" onkeyup="myKeyUpFilter()"
                             placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" onclick="motFiltre()">
                             <i class="fa fa-search" aria-hidden="true"></i>
@@ -56,36 +56,143 @@
             <section>
                 <div class="row">
                     <div id="elt-filter">
-                        
+
                     </div>
                 </div>
 
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <div class="container">
-                        <div class="collapse navbar-collapse" id="navbar-content">
-                            <ul class="navbar-nav mr-auto mb-lg-0">
+                <div 
+                     class="row mt-2 mb-2"
+                     id="search-combobox-container"
+                     >
+                    <div 
+                        class="col-2" 
+                        id="ingredients-combobox"
+                        data-type="ingredients"
+                        >
+                        <div 
+                            class="combobox" 
+                            id="ingredients-controls"
+                            data-type="ingredients"
+                            >
+                            <input 
+                                id="ingredients-input"
+                                class="combobox-input"
+                                data-type="ingredients"
+                                placeholder="ingredients"
+                                type="text"
+                                >
+                            <button
+                                id="ingredients-btn"
+                                class="combobox-btn"
+                                data-type="ingredients"
+                                >
 
-                                <div class="row" id="select-content">
-
-                                </div>
-
-                            </ul>
+                            </button>
                         </div>
+                        <ul
+                            id="ingredients-list"
+                            class="combobox-list hidden"
+                            data-type="ingredients"
+                            >
+                        </ul>
                     </div>
-                </nav>
+                    <div 
+                        class="col-2" 
+                        id="appliances-combobox"
+                        data-type="appliances"
+                        >
+                        <div 
+                            class="combobox" 
+                            id="appliances-controls"
+                            data-type="appliances"
+                            >
+                            <input 
+                                id="appliances-input"
+                                class="combobox-input"
+                                data-type="appliances"
+                                placeholder="appliances"
+                                type="text"
+                                >
+                            <button
+                                id="appliances-btn"
+                                class="combobox-btn"
+                                data-type="appliances"
+                                >
+
+                            </button>
+                        </div>
+                        <ul
+                            id="appliances-list"
+                            class="combobox-list hidden"
+                            data-type="appliances"
+                            >
+                        </ul>
+                    </div>
+                    <div 
+                        class="col-2" 
+                        id="ustensils-combobox"
+                        data-type="ustensils"
+                        >
+                        <div 
+                            class="combobox" 
+                            id="ustensils-controls"
+                            data-type="ustensils"
+                            >
+                            <input 
+                                id="ustensils-input"
+                                class="combobox-input"
+                                data-type="ustensils"
+                                placeholder="ustensils"
+                                type="text"
+                                >
+                            <button
+                                id="ustensils-btn"
+                                class="combobox-btn"
+                                data-type="ustensils"
+                                >
+
+                            </button>
+                        </div>
+                        <ul
+                            id="ustensils-list"
+                            class="combobox-list hidden"
+                            data-type="ustensils"
+                            >
+                        </ul>
+                    </div>
+                </div>
+
 
             </section>
             <section>
-                <div class="row row-cols-1 row-cols-md-3 g-4" id="colone">
-                    
+                <span id="no-result" class="hidden">
+                    Aucune recette ne correspond a votre recherche
+                </span>
+                <div class="row row-cols-1 row-cols-md-3 g-4" id="content-page">
+
                 </div>
             </section>
-            <section>
-
-            </section>
+            <template id="template-recipe">
+                <article id="recipe">
+                    <div class="recipe-thumbnail"></div>
+                    <div class="recipe-details">
+                        <h2 class="recipe-title"></h2>
+                        <span class="recipe-time"></span>
+                        <ul class="recipe-ingrdients"></ul>
+                        <p class="recipe-description"></p>
+                    </div>
+                </article>
+            </template>
+            <template id="template_tag">
+                <article class="tag"> <!--classlist.add "category-tag"-->
+                    <h3 class="tag-title"></h3>
+                    <button class="tag-btn"></button>
+                </article>
+            </template>
         </div>
 
     </main>
+    <script src="./script/index.js" type="module"></script>
     <!-- <div class="container-fluid">
             <h1>Hello, world!!!</h1>
             <div class="container">
@@ -102,8 +209,8 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="./script/recipes.js"></script>
-    <script src="./script/filtre.js"></script>
+    <!-- <script src="./script/recipes.js"></script>
+    <script src="./script/filtre.js"></script> -->
 
     <!-- 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

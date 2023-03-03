@@ -12,6 +12,15 @@
 
 .bg-color1 {
   background: #3282F7;
+  color: #fff;
+}
+
+.input_ingrediant-left {
+  margin-left: -2rem;
+  width: 100%;
+}
+.input_ingrediant-left::placeholder {
+  color: #fff;
 }
 
 .bg-color1-redius {
@@ -56,6 +65,10 @@
 .p-noWrap {
   display: flex;
   flex-wrap: nowrap;
+}
+
+.mb-n-1 {
+  margin-bottom: -1rem;
 }
 
 /*# sourceMappingURL=style.css.map */
