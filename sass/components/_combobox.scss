@@ -1,0 +1,93 @@
+@use '../abstracts/mainAbstract.scss' as a;
+
+.combobox {
+    margin: 2rem 1rem 1rem 0;
+    border-radius: 5px;
+    overflow: hidden;
+    min-width: 130px;
+}
+.combobox-controls {
+    display: flex;
+    justify-content: space-between;
+    border-radius: a.$rad a.$rad 0 0;
+
+}
+.combobox-btn {
+    height: 70px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    //border: none;
+    color: #fff;
+    font-size: 18px;
+    position: relative;
+    border-radius: a.$rad;
+    cursor: pointer;
+    background-color: transparent;
+
+    &::after {
+        @include a.fontAwesome();
+        content: '\f107';
+    }
+}
+.combobox-input {
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    outline: none;
+    padding: 0 15px;
+    height: 70px;
+    width: min-content;
+    background-color: transparent;
+    
+    &::placeholder {
+        opacity: 1;
+        color: #fff;
+    }
+    &.expanded::placeholder{
+        opacity: 0.5;
+    }
+    
+}
+.combobox-list {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px 50px;
+    line-height: 1em;
+    max-width: 12em;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 0 0 a.$rad a.$rad;
+    overflow-y: scroll;
+    scrollbar-color: rbga(255, 255, 255, .5) rbga(255, 255, 255, .1);
+    scrollbar-width: thin;
+
+    & li {
+        cursor: pointer;
+    }
+}
+
+#ingredients-controls {
+    background-color: a.$clr-blue;
+}
+
+#appliances-controls {
+    background-color: a.$clr-green;
+}
+
+#ustensils-controls {
+    background-color: a.$clr-red;
+}
+#ingredients-list {
+    background-color: a.$clr-blue;
+}
+#appliances-list {
+    background-color: a.$clr-green;
+}
+#ustensils-list {
+    background-color: a.$clr-red;
+}
