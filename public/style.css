@@ -17,6 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
   color: #fff;
   font-size: 18px;
   position: relative;
@@ -95,6 +96,38 @@
 
 #ustensils-list {
   background-color: #ED6454;
+}
+
+.heidden {
+  display: none;
+}
+
+html, body {
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+main {
+  width: 85%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#search-section {
+  width: 100%;
+}
+
+#result-section {
+  width: 100%;
+  display: grid;
 }
 
 .text-hidden {
