@@ -1,9 +1,10 @@
 import { addTag } from "./factory/selectTag.js";
 import { updateResults } from "./recherche.js";
+import { searchParams } from "./index.js";
 
-const controls = [document.getElementById('ingredients-controls'), document.getElementById('appliences-controls'), document.getElementById('ustensils-controls')];
-const buttons = [document.getElementById('ingredients-btn'), document.getElementById('appliences-btn'), document.getElementById('ustensils-btn')];
-const inputs = [document.getElementById('ingredients-input'), document.getElementById('appliences-input'), document.getElementById('ustensils-input')];
+const controls = [document.getElementById('ingredients-controls'), document.getElementById('appliances-controls'), document.getElementById('ustensils-controls')];
+const buttons = [document.getElementById('ingredients-btn'), document.getElementById('appliances-btn'), document.getElementById('ustensils-btn')];
+const inputs = [document.getElementById('ingredients-input'), document.getElementById('appliances-input'), document.getElementById('ustensils-input')];
 const searchbar = document.getElementById('search-filter');
 
 // ECOUTEUR D'EVENEMENTS
@@ -16,7 +17,8 @@ export function addEventListeners() {
     }));
 
     controls.forEach(control => control.addEventListener('focusout', (evt) => {
-        const combobox = evt.target.parentNode.parentNode // RECUPERATION DU DOM
+        const combobox = evt.target.parentNode.parentNode // RECUPERATION DE L'ELEMENT DU DOM SUR LEQUEL ON A EFFECTUE UN CLICK
+        console.log('combobox', combobox);
         const category = evt.target.dataset.type
 
         const comboboxDOM = {
@@ -27,9 +29,10 @@ export function addEventListeners() {
             list: document.getElementById(`${category}-list`)
 
         }
+        console.log('comboboxDOM', comboboxDOM);
 
         if(!combobox.contains(evt.relatedTarget)) {
-            hisList(comboboxDOM, category);
+            hideList(comboboxDOM, category);
         }
     }))
     searchbar.addEventListener('keyup', handlerKeyup);
@@ -55,7 +58,7 @@ function expandList(evt){
     }
     comboboxDOM.input.setAttribute('placeholder', `rechercher un ${categoryEquivalences[category]}`);
     comboboxDOM.input.setAttribute('size', 20);
-    comboboxDOM.input.add('expanded');
+    comboboxDOM.input.classList.add('expanded');
     const listArray = [].slice.call(comboboxDOM.list.children);
     if(evt.target === comboboxDOM.button || evt.target === comboboxDOM.input ) {
         comboboxDOM.list.classList.remove('hidden')
@@ -101,7 +104,7 @@ function handlerTagKeyup (evt) {
         tagsToHide.forEach(tag => tag.classList.add('hidden'))
     }
     if (currentInput.value.length < 3) {
-        currentInput.forEach(tag => tag.classList.remove('hidden'))
+        currentTags.forEach(tag => tag.classList.remove('hidden'))
     }
 }
 

@@ -1,7 +1,7 @@
 import { addEventListeners } from "./event.js";
-import { displayResults } from "./Afficheage.js";
+import { afficheResults } from "./Affichage.js";
 
-export const defaultSearchParams = {
+export const searchParams = {
     textSearch: '',
     ingredients: [],
     appliances: [],
@@ -10,8 +10,11 @@ export const defaultSearchParams = {
 
 function initTable() {
     console.log('initTable');
-    displayResults([...Array(50).keys()]);
+    afficheResults([...Array(50).keys()]);
     addEventListeners();
 }
 
 initTable()
+function myKeyUpFilter() {
+
+}
