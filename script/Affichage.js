@@ -9,12 +9,14 @@ export function afficheResults (recipeIds) {
     const noResult = document.getElementById('no-result');
     resultSection.innerHTML = '';
     noResult.classList.add('hidden');
+    // Résultat brut
     const rawResult = [];
 
     if (recipeIds.length > 0) {
         recipeIds.forEach(id => {
             rawResult.push(recipes.filter(recipe => recipe.id === id))
         });
+        // la fonction flat() doit transformer le tableau de tableau rawResult en un seul tableau: flatResult
         const flatResult = rawResult.flat();
         const allTags = [
             {
