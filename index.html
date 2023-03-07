@@ -36,20 +36,22 @@
             <div class="col">
                 <img src="./asset/images/logoProje4.png" alt="Les petits plats">
             </div>
-            <div class="col" id="search-tags"></div>
+            <div class="col"></div>
         </div>
     </header>
 
     <main>
-        <div class="container">
+        <div class="container" id="search-section">
             <section>
                 <div class="row">
                     <div class="d-flex mt-1">
-                        <input class="form-control me-2" id="search-filter" type="search" onkeyup="myKeyUpFilter()"
+                        <!-- <input class="form-control me-2" id="search-filter" type="search" onkeyup="myKeyUpFilter()" -->
+                        <input class="form-control me-2" id="searchbar" type="search" onkeyup="myKeyUpFilter()"
                             placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" onclick="motFiltre()">
+                            <div id="search-tags"></div>
+                        <!-- <button class="btn btn-outline-success" onclick="motFiltre()">
                             <i class="fa fa-search" aria-hidden="true"></i>
-                        </button>
+                        </button> -->
                     </div>
                 </div>
             </section>
@@ -61,7 +63,7 @@
                 </div>
 
                 <div 
-                     class="row mt-2 mb-2"
+                     class="mt-2 mb-2"
                      id="search-combobox-container"
                      >
                     <div 
@@ -168,7 +170,7 @@
                 <span id="no-result" class="hidden">
                     Aucune recette ne correspond a votre recherche
                 </span>
-                <div class="row row-cols-1 row-cols-md-3 g-4" id="content-page">
+                <div id="content-page">
 
                 </div>
             </section>

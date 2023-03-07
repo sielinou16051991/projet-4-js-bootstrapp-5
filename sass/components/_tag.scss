@@ -1,0 +1,50 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variable' as a;
+
+.tag {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    width: max-content;
+    padding: 9px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 5px 20px 5px 0;
+}
+
+.tag-btn {
+    background-color: red;
+    color: #fff;
+    margin-left: 9px;
+    border: none;
+    cursor: pointer;
+
+    &::before{
+        @include m.fontAwesome;
+        content: '\f057';
+    }
+}
+#search-tags {
+    &::before{
+        @include m.fontAwesome;
+        content: '\f002';
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        margin: 1rem -3rem;
+        font-size: 30px;
+    }
+}
+.ingredients-tag {
+    background-color: a.$clr-blue;
+}
+
+.appliances-tag {
+    background-color: a.$clr-green;
+}
+
+.ustensils-tag {
+    background-color: a.$clr-red;
+}

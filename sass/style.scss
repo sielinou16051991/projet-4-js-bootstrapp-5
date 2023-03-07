@@ -1,64 +1,70 @@
 @use './components/combobox' as components;
 @use './components/mode' as u;
+@use './components/tag' as t;
+@use './components/recipe' as r;
+@use './components/searchBar' as sb;
 @use './body' as body;
+@use './layout/search' as s;
+@use './core/typegraphy' as typ;
 
 
-.text-hidden {
-    overflow: hidden;
-    height: 300px;
-    text-overflow: ellipsis;
-    white-space: pre-line;
-}
-.hauteur {
-    height: 675%;
-    overflow-y: scroll;
-}
-.bg-color1 {
-    background: #3282F7;
-    color: #fff;
-}
-.input_ingrediant-left {
-    margin-left: -2rem;
-    width: 100%;
 
-    &::placeholder{
-        color: #fff;
-    }
-}
-.bg-color1-redius {
-    background: #3282F7;
-    border-radius: 5px;
-}
-.bg-color2 {
-    background: #68D9A4;
-    border-radius: 5px;
-}
-.bg-color3 {
-    background: #ED6454;
-    border-radius: 5px;
-}
-.go-left {
-    margin-left: -.6rem;
-}
-.marge-smal-block {
-    margin-left: 0%;
-}
-.marge {
-    margin-left: 2.5rem;
-}
-.marge-block {
-    margin-left: 11%;
-}
-.marge-large {
-    margin-left: 5rem;
-}
-.marge-large-block {
-    margin-left: 21.5%;
-}
-.p-noWrap {
-    display: flex;
-    flex-wrap: nowrap;
-}
-.mb-n-1 {
-    margin-bottom: -1rem;
-}
+// .text-hidden {
+//     overflow: hidden;
+//    // height: 300px;
+//     text-overflow: ellipsis;
+//     white-space: pre-line;
+// }
+// .hauteur {
+//     height: 675%;
+//     overflow-y: scroll;
+// }
+// .bg-color1 {
+//     background: #3282F7;
+//     color: #fff;
+// }
+// .input_ingrediant-left {
+//     margin-left: -2rem;
+//     width: 100%;
+
+//     &::placeholder{
+//         color: #fff;
+//     }
+// }
+// .bg-color1-redius {
+//     background: #3282F7;
+//     border-radius: 5px;
+// }
+// .bg-color2 {
+//     background: #68D9A4;
+//     border-radius: 5px;
+// }
+// .bg-color3 {
+//     background: #ED6454;
+//     border-radius: 5px;
+// }
+// .go-left {
+//     margin-left: -.6rem;
+// }
+// .marge-smal-block {
+//     margin-left: 0%;
+// }
+// .marge {
+//     margin-left: 2.5rem;
+// }
+// .marge-block {
+//     margin-left: 11%;
+// }
+// .marge-large {
+//     margin-left: 5rem;
+// }
+// .marge-large-block {
+//     margin-left: 21.5%;
+// }
+// .p-noWrap {
+//     display: flex;
+//     flex-wrap: nowrap;
+// }
+// .mb-n-1 {
+//     margin-bottom: -1rem;
+// }
