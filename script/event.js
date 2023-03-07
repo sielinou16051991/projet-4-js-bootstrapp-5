@@ -5,7 +5,7 @@ import { searchParams } from "./index.js";
 const controls = [document.getElementById('ingredients-controls'), document.getElementById('appliances-controls'), document.getElementById('ustensils-controls')];
 const buttons = [document.getElementById('ingredients-btn'), document.getElementById('appliances-btn'), document.getElementById('ustensils-btn')];
 const inputs = [document.getElementById('ingredients-input'), document.getElementById('appliances-input'), document.getElementById('ustensils-input')];
-const searchbar = document.getElementById('search-filter');
+const searchbar = document.getElementById('searchbar');
 
 // ECOUTEUR D'EVENEMENTS
 export function addEventListeners() {
@@ -35,6 +35,7 @@ export function addEventListeners() {
             hideList(comboboxDOM, category);
         }
     }))
+    console.log('searchbar', searchbar);
     searchbar.addEventListener('keyup', handlerKeyup);
 }
 

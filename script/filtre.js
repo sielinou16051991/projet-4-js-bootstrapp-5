@@ -207,7 +207,7 @@
 // }
 // let val;
 function myKeyUpFilter() {
-    let elt = document.getElementById('search-filter').value;
+    let elt = document.getElementById('searchbar').value;
     console.log('elt', elt);
 
     valFilter = document.getElementById('elt-filter');
