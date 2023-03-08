@@ -1,16 +1,14 @@
 @use '../abstracts/variable' as a;
 @use '../abstracts/mixins' as m;
 
-#template-recipe{
-    height: 50%;
-}
+
 .recipe {
     display: grid;
     grid-template-rows: 1fr 1fr;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     background-color: a.$clr-lgrey;
-    min-height: 300px;height: 50%;
+    min-height: 300px;
 }
 
 .recipe-thumbnail {

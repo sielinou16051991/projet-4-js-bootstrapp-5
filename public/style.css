@@ -61,7 +61,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 10px 50px;
   line-height: 1em;
-  max-width: 15em;
+  max-width: 30em;
   color: #fff;
   font-size: 18px;
   padding: 10px;
@@ -69,6 +69,7 @@
   overflow-y: scroll;
   scrollbar-color: rbga(255, 255, 255, 0.5) rbga(255, 255, 255, 0.1);
   scrollbar-width: thin;
+  position: absolute;
 }
 .combobox-list li {
   cursor: pointer;
@@ -116,7 +117,6 @@
 }
 
 .tag-btn {
-  background-color: red;
   color: #fff;
   margin-left: 9px;
   border: none;
@@ -151,21 +151,14 @@
 
 .ingredients-tag {
   background-color: #3282F7;
-  height: 50%;
 }
 
 .appliances-tag {
   background-color: #68D9A4;
-  height: 50%;
 }
 
 .ustensils-tag {
   background-color: #ED6454;
-  height: 50%;
-}
-
-#template-recipe {
-  height: 50%;
 }
 
 .recipe {
@@ -175,7 +168,6 @@
   overflow: hidden;
   background-color: #E7E7E7;
   min-height: 300px;
-  height: 50%;
 }
 
 .recipe-thumbnail {
@@ -270,6 +262,8 @@ main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  position: relative;
+  z-index: -1;
 }
 @media screen and (max-width: 990px) {
   #content-page {

@@ -48,7 +48,9 @@
                         <!-- <input class="form-control me-2" id="search-filter" type="search" onkeyup="myKeyUpFilter()" -->
                         <input class="form-control me-2" id="searchbar" type="search" onkeyup="myKeyUpFilter()"
                             placeholder="Search" aria-label="Search">
-                            <div id="search-tags"></div>
+                        <div id="search-tags">
+
+                        </div>
                         <!-- <button class="btn btn-outline-success" onclick="motFiltre()">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </button> -->
@@ -63,7 +65,7 @@
                 </div>
 
                 <div 
-                     class="mt-2 mb-2"
+                     class="mb-5"
                      id="search-combobox-container"
                      >
                     <div 
@@ -170,9 +172,9 @@
                 <span id="no-result" class="hidden">
                     Aucune recette ne correspond a votre recherche
                 </span>
-                <div id="content-page">
+                <section id="content-page">
 
-                </div>
+                </section>
             </section>
             <template id="template-recipe">
                 <article class="recipe">
@@ -180,7 +182,7 @@
                     <div class="recipe-details">
                         <h2 class="recipe-title"></h2>
                         <span class="recipe-time"></span>
-                        <ul class="recipe-ingrdients"></ul>
+                        <ul class="recipe-ingredients"></ul>
                         <p class="recipe-description"></p>
                     </div>
                 </article>

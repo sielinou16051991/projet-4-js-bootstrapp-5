@@ -5,16 +5,19 @@ function recipeFactory(recipeContent) {
     // CREATION D'UN MODEL DE DONNEE DE LA BASE DE DONNE recipes
     const { id, name, servings, ingredients, time, description, appliance, ustensils } = recipeContent
 
+    // console.log('recipeContent', recipeContent);
     // CONSTRUCTION D'UN ARTICLE
     const resultSection = document.getElementById('content-page');
     const template = document.getElementById('template-recipe').content;
     const templateClone = document.importNode(template, true);
+    // console.log('templateClone', templateClone);
     const recipe = templateClone.querySelector('.recipe');
+    // console.log('recipe', recipe);
     const recipeTitle = templateClone.querySelector('.recipe-title');
     const recipeTime = templateClone.querySelector('.recipe-time');
-    const recipeIngredients = templateClone.querySelector('.recipe-ingrdients');
+    const recipeIngredients = templateClone.querySelector('.recipe-ingredients');
     const recipeDescription = templateClone.querySelector('.recipe-description');
-    console.log('recipe');
+   // console.log('recipe');
     recipe.setAttribute('id', `${id}`);
     recipe.setAttribute('data-appliance', `${appliance}`)
     recipe.setAttribute('data-ustensils', `${ustensils}`)

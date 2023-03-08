@@ -57,7 +57,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 10px 50px;
     line-height: 1em;
-    max-width: 15em;
+    max-width: 30em;
     color: #fff;
     font-size: 18px;
     padding: 10px;
@@ -65,6 +65,7 @@
     overflow-y: scroll;
     scrollbar-color: rbga(255, 255, 255, .5) rbga(255, 255, 255, .1);
     scrollbar-width: thin;
+    position: absolute;
 
     & li {
         cursor: pointer;
