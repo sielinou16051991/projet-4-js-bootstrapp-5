@@ -98,7 +98,7 @@
   background-color: #ED6454;
 }
 
-.heidden {
+.hidden {
   display: none;
 }
 
@@ -151,14 +151,21 @@
 
 .ingredients-tag {
   background-color: #3282F7;
+  height: 50%;
 }
 
 .appliances-tag {
   background-color: #68D9A4;
+  height: 50%;
 }
 
 .ustensils-tag {
   background-color: #ED6454;
+  height: 50%;
+}
+
+#template-recipe {
+  height: 50%;
 }
 
 .recipe {
@@ -168,10 +175,15 @@
   overflow: hidden;
   background-color: #E7E7E7;
   min-height: 300px;
+  height: 50%;
 }
 
 .recipe-thumbnail {
   background-color: #C7BEBE;
+}
+
+article {
+  display: block;
 }
 
 .recipe-details {

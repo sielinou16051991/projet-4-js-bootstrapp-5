@@ -42,6 +42,7 @@ export function addEventListeners() {
 function expandList(evt){
     const target = evt.target;
     const category = target.dataset.type;
+    console.log('category', category);
     
     const comboboxDOM = {
         combobox: document.getElementById(`${category}-combobox`),
@@ -51,7 +52,8 @@ function expandList(evt){
         list: document.getElementById(`${category}-list`)
 
     }
-
+    console.log('comboboxDOM', comboboxDOM);
+  
     const categoryEquivalences = {
         ingredients: 'ingrédient',
         appliances: 'appareil',
@@ -60,6 +62,11 @@ function expandList(evt){
     comboboxDOM.input.setAttribute('placeholder', `rechercher un ${categoryEquivalences[category]}`);
     comboboxDOM.input.setAttribute('size', 20);
     comboboxDOM.input.classList.add('expanded');
+
+    console.log('comboboxDOM.list.children', comboboxDOM.list.children);
+    console.log('evt.target     comboboxDOM.button', evt.target, comboboxDOM.button);
+    console.log('comboboxDOM.list.classList', comboboxDOM.list.classList);
+    
     const listArray = [].slice.call(comboboxDOM.list.children);
     if(evt.target === comboboxDOM.button || evt.target === comboboxDOM.input ) {
         comboboxDOM.list.classList.remove('hidden')
