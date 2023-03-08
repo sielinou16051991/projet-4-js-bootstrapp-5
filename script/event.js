@@ -108,10 +108,15 @@ function handlerTagKeyup (evt) {
 
     console.log('currentInput', currentInput);
     const currentTags = [].slice.call(document.querySelectorAll(`li[data-category=${category}]`));
+    // console.log('currentTags', currentTags);
     if (currentInput.value.length >= 3) {
+        // console.log('currentInput.value.length', currentInput.value.length);
         currentTags.forEach(tag => tag.classList.remove('hidden'));
-        const tagsToHide = currentTags.filter(li => !li.dataset.name.includes(currentInput.value));
+       //  console.log('currentTags après forEach', currentTags);
+        const tagsToHide = currentTags.filter(li => !li.dataset.name.toLowerCase().includes(currentInput.value.toLowerCase()));
+       // console.log('tagsToHide = currentTags après filtre', tagsToHide);
         tagsToHide.forEach(tag => tag.classList.add('hidden'));
+       // console.log('tagsToHide apres forEach', tagsToHide);
     }
     if (currentInput.value.length < 3) {
         currentTags.forEach(tag => tag.classList.remove('hidden'));
