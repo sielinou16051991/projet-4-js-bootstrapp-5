@@ -20,10 +20,10 @@ export function addTag(name, category){
 }
 
 function removeTag(elt){
-    const btn = elt.target
+    const button = elt.target
     const tag = elt.target.parentNode
 
-    searchParams[btn.dataset.category] = searchParams[btn.dataset.category].filter(keyword => keyword !== btn/dataset.name);
+    searchParams[button.dataset.category] = searchParams[button.dataset.category].filter(keyword => keyword !== btn.dataset.name);
     tag.parentNode.removeChild(tag)
     elt.target.removeEventListener('click', removeTag)
     updateResults()

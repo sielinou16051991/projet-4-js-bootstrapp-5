@@ -6,17 +6,19 @@
     justify-content: space-between;
     align-items: center;
     border-radius: 5px;
+    height: 50px;
     width: max-content;
     padding: 9px;
     color: #fff;
     font-size: 14px;
     font-weight: 700;
-    margin: 5px 20px 5px 0;
+    margin: 5px 20px 1px 0;
 }
 
 .tag-btn {
     color: #fff;
     margin-left: 9px;
+    font-size: 20px;
     border: none;
     cursor: pointer;
 
@@ -25,7 +27,7 @@
         content: '\f057';
     }
 }
-#search-tags {
+.search {
     &::before{
         @include m.fontAwesome;
         content: '\f002';
@@ -38,12 +40,25 @@
 }
 .ingredients-tag {
     background-color: a.$clr-blue;
+    .tag-btn {
+        background-color: a.$clr-blue;
+    }
 }
 
 .appliances-tag {
     background-color: a.$clr-green;
+    .tag-btn {
+        background-color: a.$clr-green;
+    }
 }
 
 .ustensils-tag {
     background-color: a.$clr-red;
+    .tag-btn {
+        background-color: a.$clr-red;
+    }
+}
+
+.space-tag {
+    margin: 0 0 -2rem -.75rem;
 }
