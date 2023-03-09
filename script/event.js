@@ -98,6 +98,7 @@ function handlerKeyup(){
 
     if(searchbar.value.length >= 3) {
         searchParams.textSearch = searchbar.value
+        console.log('searchParams.textSearch : ', searchParams.textSearch);
         updateResults()
     }
 }

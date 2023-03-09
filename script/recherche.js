@@ -15,17 +15,19 @@ function search(searchParams) {
         ingredients: searchParams.ingredients.length > 0,
         appliences: searchParams.appliances.length > 0,
         ustensils: searchParams.ustensils.length > 0,
-        Text: searchParams.textSearch !== ''
+        text: searchParams.textSearch !== ''
     }
     // récupération des valeurs de l'objet JSON
-    let valArray = Object.values(activeSearch);
+    let valArray = Object.values(activeSearch).every(item => item === false);
+    console.log('valArray', valArray);
     //* Si tous les paramètres sont vides, renvoyez un tableau de nombres compris entre 1 et 50.
-    if (valArray.every(item => item === false)) {
+    if (valArray) {
         return [...Array(50).keys()]
     }
 
     let idsFound = [];
     //* Lier les fonctions de recherche à une clé d’objet
+    console.log('Object.entries(activeSearch)', Object.entries(activeSearch));
     Object.entries(activeSearch).forEach(([key, value]) => {
         const searchResults = {
             ingredients: () => ingredientsSearch(idsFound),
@@ -35,8 +37,9 @@ function search(searchParams) {
         }
         if (value) {
             //*  Pour chaque paramètre de recherche existant, appelle la fonction de recherche associée.
+            console.log('appel des fonctions de recherche associées');
             const currentBatch = [];
-            currentBatch.push(searchResults[`${key}`])
+            currentBatch.push(searchResults[`${key}`]());
             if (currentBatch.length === 0) return []
             // transformation du tableau de tableau currentBatch en un seul tableau idsFound
             else idsFound = currentBatch.flat()
@@ -58,14 +61,14 @@ function ustensilsSearch(ids = []){
     let singleTagMatchR = [];
     const singleTagMatchIds = [];
     const tags = searchParams.ustensils;
-    let recipesTopParse;
+    let recipesToParse;
 
     // S’il s’agit de la première fonction de recherche appelée, itére sur l’ensemble de l’objet recipes au lieu de l’argument idsFound.
-    if (ids.length === 0) recipesTopParse = recipes
-    else recipesTopParse = getRecipesById(ids)
+    if (ids.length === 0) recipesToParse = recipes
+    else recipesToParse = getRecipesById(ids)
 
     tags.forEach(tag => {
-        singleTagMatchR = singleTagMatchR.concat(recipesTopParse.filter(recipe => recipe.ustensils.includes(tag)))
+        singleTagMatchR = singleTagMatchR.concat(recipesToParse.filter(recipe => recipe.ustensils.includes(tag)))
     })
     singleTagMatchR.forEach(recipe => singleTagMatchIds.push(recipe.id));
     return filterByOccurence(singleTagMatchIds, tags.length);
@@ -76,14 +79,14 @@ function appliancesSearch(ids = []){
     let singleTagMatchR = [];
     const singleTagMatchIds = [];
     const tags = searchParams.appliances;
-    let recipesTopParse;
+    let recipesToParse;
     
     // S’il s’agit de la première fonction de recherche appelée, itére sur l’ensemble de l’objet recipes au lieu de l’argument idsFound.
-    if (ids.length === 0) recipesTopParse = recipes
-    else recipesTopParse = getRecipesById(ids)
+    if (ids.length === 0) recipesToParse = recipes
+    else recipesToParse = getRecipesById(ids)
 
     tags.forEach(tag => {
-        singleTagMatchR = singleTagMatchR.concat(recipesTopParse.filter(recipe => recipe.appliances === tag))
+        singleTagMatchR = singleTagMatchR.concat(recipesToParse.filter(recipe => recipe.appliances === tag))
     })
     singleTagMatchR.forEach(recipe => singleTagMatchIds.push(recipe.id));
     return filterByOccurence(singleTagMatchIds, tags.length);
@@ -91,17 +94,18 @@ function appliancesSearch(ids = []){
 
 // fonction de recherche d'un ingredient
 function ingredientsSearch(ids = []){
+    console.log('ingredientsSearch');
     let singleTagMatchR = [];
     const singleTagMatchIds = [];
     const tags = searchParams.ingredients;
-    let recipesTopParse;
+    let recipesToParse;
     
     // S’il s’agit de la première fonction de recherche appelée, itére sur l’ensemble de l’objet recipes au lieu de l’argument idsFound.
-    if (ids.length === 0) recipesTopParse = recipes
-    else recipesTopParse = getRecipesById(ids)
+    if (ids.length === 0) recipesToParse = recipes
+    else recipesToParse = getRecipesById(ids)
 
     tags.forEach(tag => {
-        singleTagMatchR = singleTagMatchR.concat(recipesTopParse.filter(recipe => hasIngredient(recipe, tag)))
+        singleTagMatchR = singleTagMatchR.concat(recipesToParse.filter(recipe => hasIngredient(recipe, tag)))
     })
     singleTagMatchR.forEach(recipe => singleTagMatchIds.push(recipe.id));
     return filterByOccurence(singleTagMatchIds, tags.length);
@@ -112,18 +116,19 @@ function hasIngredient (recipe, tag) {
     else return false
 }
 
+// RECHERCHE DES MOTS SAISIE AU CLAVIER EN UTILLISANT LA PROGRAMMATION FONCTIONNELLE
 function keyWordSearch (ids) {
     let matchR = []
     const matchIds = []
     const keyword = searchParams.textSearch
-    let recipesTopParse
+    let recipesToParse
 
-    if (ids.length === 0) recipesTopParse = recipes
-    else recipesTopParse = getRecipesById(ids)
+    if (ids.length === 0) recipesToParse = recipes
+    else recipesToParse = getRecipesById(ids)
 
-    matchR = matchR.concat(recipesTopParse.filter(recipe => recipe.name.includes(keyword)))
-    matchR = matchR.concat(recipesTopParse.filter(recipe => recipe.description.includes(keyword)))
-    matchR = matchR.concat(recipesTopParse.filter(recipe => hasIngredient(recipe, [keyword])))
+    matchR = matchR.concat(recipesToParse.filter(recipe => recipe.name.includes(keyword)))
+    matchR = matchR.concat(recipesToParse.filter(recipe => recipe.description.includes(keyword)))
+    matchR = matchR.concat(recipesToParse.filter(recipe => hasIngredient(recipe, [keyword])))
 
     matchR.forEach(recipe => matchIds.push(recipe.id))
 
