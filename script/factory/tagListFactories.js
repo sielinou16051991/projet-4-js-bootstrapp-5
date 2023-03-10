@@ -1,7 +1,13 @@
 function onlyUnique (value, index, self) {
+    console.log('onlyUnique');
+    // console.log('index', index);
+    console.log('self.indexOf(value):', self.indexOf(value));
     return self.indexOf(value) === index
 }
+// LES 3 FONCTIONS CI-DESSOUS SONT DESTINEES A RECUPERER LES 
+// INGREDIENTS, APPLIANCES ET USTANSILS DE LA BD recipes
 export function getIngredients(recipes){
+    console.log('getIngredients');
     const allIngredient = [];
     recipes.forEach(recipe => recipe.ingredients.forEach(object => {
         allIngredient.push(object.ingredient)
@@ -11,6 +17,7 @@ export function getIngredients(recipes){
     return filteredIngredients
 }
 export function getAppliances(recipes) {
+    console.log('getAppliances');
     const allAppliances = [];
     recipes.forEach(recipe => {
         allAppliances.push(recipe.appliance)
@@ -19,6 +26,7 @@ export function getAppliances(recipes) {
     return uniqueAppliences;
 }
 export function getUstensils(recipes){
+    console.log('getUstensils');
     const allUstensils = [];
     recipes.forEach(recipe => recipe.ustensils.forEach(ustensil => {
         allUstensils.push(ustensil);
