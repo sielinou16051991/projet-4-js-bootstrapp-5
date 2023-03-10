@@ -19,7 +19,7 @@ function search(searchParams) {
     }
     // récupération des valeurs de l'objet JSON
     let valArray = Object.values(activeSearch).every(item => item === false);
-    console.log('valArray', valArray);
+    console.log('Object.values(activeSearch)', Object.values(activeSearch));
     //* Si tous les paramètres sont vides, renvoyez un tableau de nombres compris entre 1 et 50.
     if (valArray) {
         return [...Array(50).keys()]
@@ -39,10 +39,10 @@ function search(searchParams) {
             //*  Pour chaque paramètre de recherche existant, appelle la fonction de recherche associée.
             console.log('appel des fonctions de recherche associées');
             const currentBatch = [];
-            currentBatch.push(searchResults[`${key}`]());
-            if (currentBatch.length === 0) return []
+            currentBatch.push(searchResults[`${key}`]()); //appel d'une fonction de l'objet searchResults par sa clé; et y mettre le résultat dans le tableau currentBatch
+            if (currentBatch.length === 0) return [] 
             // transformation du tableau de tableau currentBatch en un seul tableau idsFound
-            else idsFound = currentBatch.flat()
+            else idsFound = currentBatch.flat() // transformation du résultat en un unique tableau qui sera stocké dans idsFound
         }
     })
     return idsFound
