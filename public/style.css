@@ -111,6 +111,10 @@ ul {
   display: none;
 }
 
+#no-result {
+  color: red;
+}
+
 .tag {
   display: flex;
   justify-content: space-between;
@@ -323,7 +327,6 @@ main {
   -webkit-font-smoothing: antialiased;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
-  content: "\f107";
 }
 #searchbar:focus {
   outline: 3px solid #ED6454;

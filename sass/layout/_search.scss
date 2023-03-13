@@ -18,7 +18,7 @@
 
     &::after {
         @include m.fontAwesome();
-        content: '\f107';
+        // content: '\f107';
     }
 
     &:focus {
