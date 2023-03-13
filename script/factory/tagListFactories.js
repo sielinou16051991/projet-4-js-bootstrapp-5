@@ -1,7 +1,7 @@
 function onlyUnique (value, index, self) {
-    console.log('onlyUnique');
+    // console.log('onlyUnique');
     // console.log('index', index);
-    console.log('self.indexOf(value):', self.indexOf(value));
+    // console.log('self.indexOf(value):', self.indexOf(value));
     return self.indexOf(value) === index
 }
 // LES 3 FONCTIONS CI-DESSOUS SONT DESTINEES A RECUPERER LES 

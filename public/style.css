@@ -71,13 +71,16 @@ ul {
   font-size: 18px;
   padding: 10px;
   border-radius: 0 0 5px 5px;
-  overflow-y: scroll;
   scrollbar-color: rbga(255, 255, 255, 0.5) rbga(255, 255, 255, 0.1);
   scrollbar-width: thin;
   position: absolute;
 }
 .combobox-list li {
   cursor: pointer;
+}
+
+#ingredients-list {
+  overflow-y: scroll;
 }
 
 #ingredients-controls {

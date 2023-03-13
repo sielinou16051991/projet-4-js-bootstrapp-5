@@ -16,7 +16,8 @@ export function afficheResults (recipeIds) {
         recipeIds.forEach(id => {
             rawResult.push(recipes.filter(recipe => recipe.id === id))
         });
-        // la fonction flat() doit transformer le tableau de tableau rawResult en un seul tableau: flatResult
+        // la fonction flat() doit transformer le tableau de tableau rawResult 
+        // qui contient le résultat brut en un seul tableau: flatResult
         const flatResult = rawResult.flat();
         const allTags = [
             {

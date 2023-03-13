@@ -48,7 +48,7 @@ function search(searchParams) {
     return idsFound
 }
 
-// Mettre dans result les éléments de recipes qui ont le meme id que les ids qui sont dans le tableau ids
+// Mettre dans result les éléments de recipes qui ont le meme id que les ids qui sont dans le tableau ids dans le tableau result
 // puis transformer le tableau (la matrice) result en un seul tableau
 function getRecipesById (ids) {
     const result = []
@@ -58,6 +58,7 @@ function getRecipesById (ids) {
 
 // fonction de recherche d'un ustensils
 function ustensilsSearch(ids = []){
+    console.log('ustensilsSearch');
     let singleTagMatchR = [];
     const singleTagMatchIds = [];
     const tags = searchParams.ustensils;
@@ -76,6 +77,7 @@ function ustensilsSearch(ids = []){
 
 // fonction de recherche d'un Appareil
 function appliancesSearch(ids = []){
+    console.log('appliancesSearch');
     let singleTagMatchR = [];
     const singleTagMatchIds = [];
     const tags = searchParams.appliances;
@@ -86,7 +88,10 @@ function appliancesSearch(ids = []){
     else recipesToParse = getRecipesById(ids)
 
     tags.forEach(tag => {
-        singleTagMatchR = singleTagMatchR.concat(recipesToParse.filter(recipe => recipe.appliances === tag))
+        console.log('tag:', tag);
+        // singleTagMatchR = singleTagMatchR.concat(recipesToParse.filter(recipe => recipe.appliance === tag))
+        singleTagMatchR = singleTagMatchR.concat(recipesToParse.filter(recipe => recipe.appliance.includes(tag)));
+
     })
     singleTagMatchR.forEach(recipe => singleTagMatchIds.push(recipe.id));
     return filterByOccurence(singleTagMatchIds, tags.length);
