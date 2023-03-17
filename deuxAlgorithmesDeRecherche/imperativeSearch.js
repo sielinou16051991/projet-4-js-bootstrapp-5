@@ -1756,16 +1756,16 @@ function search (searchParams) {
 
     Object.entries(activeSearch).forEach(([key, value]) => {
         const searchResults = {
-            ingredients: () => ingredientsSearch(idsFound),
-            appliences: () => appliancesSearch(idsFound),
-            ustensils: () => ustensilsSearch(idsFound),
-            text: () => keywordSearch(idsFound)
+            ingredients: () => ingredientsSearch(idsFound), // recherche par un tag ingredient (choisi)
+            appliences: () => appliancesSearch(idsFound), // recherche par un tag appliance (choisi)
+            ustensils: () => ustensilsSearch(idsFound), // recherche par un tag ustensil (choisi)
+            text: () => keywordSearch(idsFound) // recherche par une saisie sur la barre de recherche 
         };
         if (value) {
-            const currentBatch = []
-            currentBatch.push(searchParams[`${key}`]())
-            if (currentBatch.length === 0) return []
-            else return idsFound = currentBatch.flat()
+            const currentBatch = [];
+            currentBatch.push(searchParams[`${key}`]());
+            if (currentBatch.length === 0) return [];
+            else return idsFound = currentBatch.flat();
         }
     });
     
@@ -1847,7 +1847,7 @@ function keywordSearch (ids = []) {
     }
 
     for (let i = 0; i < matchIds.length; i++) {
-        if (matchIds.indexOf(matchIds[i]) === i) result.push[i];
+        if (matchIds.indexOf(matchIds[i]) === i) result.push(matchIds[i]);
     }
     return result;
 }
