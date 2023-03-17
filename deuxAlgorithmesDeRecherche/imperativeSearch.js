@@ -3,7 +3,7 @@ export const searchParams = {
     ingredients: [],
     appliences: [],
     ustensils: []
-}
+};
 
 
 const oldRecipes = [
@@ -1731,7 +1731,7 @@ const oldRecipes = [
         appliance: 'Four',
         ustensils: ['rouleau à patisserie', 'fouet']
     }
-]
+];
 
 const jsonRecipes = JSON.stringify(oldRecipes);
 const recipes = JSON.parse(jsonRecipes);
@@ -1746,7 +1746,7 @@ function search (searchParams) {
         appliance: searchParams.appliences.length > 0,
         ustensils: searchParams.appliences.length > 0,
         text: searchParams.textSearch !== ''
-    }
+    };
 
     if (Object.values(activeSearch).every(item => item === false)) {
         return [...Array(50).keys()]
@@ -1760,22 +1760,22 @@ function search (searchParams) {
             appliences: () => appliancesSearch(idsFound),
             ustensils: () => ustensilsSearch(idsFound),
             text: () => keywordSearch(idsFound)
-        }
+        };
         if (value) {
             const currentBatch = []
             currentBatch.push(searchParams[`${key}`]())
             if (currentBatch.length === 0) return []
             else return idsFound = currentBatch.flat()
         }
-    })
+    });
     
-    return idsFound
+    return idsFound;
 }
 
 function getRecipesById (ids) {
     const result = [];
-    ids.forEach(id => result.push(recipes.filter(recipe => recipe.id === id)))
-    return result.flat()
+    ids.forEach(id => result.push(recipes.filter(recipe => recipe.id === id)));
+    return result.flat();
 }
 function ustensilsSearch(ids = []) {
     let singleTagMatchR = [];
@@ -1783,13 +1783,13 @@ function ustensilsSearch(ids = []) {
     let tags = searchParams.ustensils;
     let recipesToParse;
 
-    if (ids.length === 0) recipesToParse = recipes
+    if (ids.length === 0) recipesToParse = recipes;
     else recipesToParse = getRecipesById(ids);
     tags.forEach(tag => {
-        singleTagMatchR = singleTagMatchR.concat(recipesToParse.filter(recipe => recipe.ustensils.includes(tag)))
+        singleTagMatchR = singleTagMatchR.concat(recipesToParse.filter(recipe => recipe.ustensils.includes(tag)));
     })
-    singleTagMatchR.forEach(recipe => singleTagMatchIds.push(recipe.id))
-    return filterByOccurence(singleTagMatchIds, tags.length)
+    singleTagMatchR.forEach(recipe => singleTagMatchIds.push(recipe.id));
+    return filterByOccurence(singleTagMatchIds, tags.length);
 }
 function appliancesSearch(ids = []){
     let singleTagMatchR = [];
@@ -1797,13 +1797,13 @@ function appliancesSearch(ids = []){
     const tags = searchParams.appliences;
     let recipesToParse;
 
-    if(ids.length === 0) recipesToParse = recipes
+    if(ids.length === 0) recipesToParse = recipes;
     else recipesToParse = getRecipesById(ids);
     tags.forEach(tag => {
-        singleTagMatchR = singleTagMatchR.concat(recipesToParse.filter(recipe => recipe.appliance === tag))
+        singleTagMatchR = singleTagMatchR.concat(recipesToParse.filter(recipe => recipe.appliance === tag));
     })
-    singleTagMatchR.forEach(recipe => singleTagMatchIds.push(recipe.id))
-    return filterByOccurence(singleTagMatchIds, tags.length)
+    singleTagMatchR.forEach(recipe => singleTagMatchIds.push(recipe.id));
+    return filterByOccurence(singleTagMatchIds, tags.length);
 }
 function ingredientsSearch(ids = []){
     let singleTagMatchR = [];
@@ -1811,14 +1811,14 @@ function ingredientsSearch(ids = []){
     const tags = searchParams.ingredients;
     let recipesToParse; 
 
-    if (ids.length === 0) recipesToParse = recipes
-    else recipesToParse = getRecipesById(ids)
+    if (ids.length === 0) recipesToParse = recipes;
+    else recipesToParse = getRecipesById(ids);
 
     tags.forEach(tag => {
-        singleTagMatchR = singleTagMatchR.concat(recipesToParse.filter(recipe => hasIngredient(recipe, tag)))
+        singleTagMatchR = singleTagMatchR.concat(recipesToParse.filter(recipe => hasIngredient(recipe, tag)));
     })
-    singleTagMatchR.forEach(recipe => singleTagMatchIds.push(recipe.id))
-    return filterByOccurence(singleTagMatchIds, tags.length)
+    singleTagMatchR.forEach(recipe => singleTagMatchIds.push(recipe.id));
+    return filterByOccurence(singleTagMatchIds, tags.length);
 }
 
 // RECHERCHE IMPERATIVE
@@ -1829,8 +1829,8 @@ function keywordSearch (ids = []) {
     const keyword = searchParams.textSearch;
     let recipesToParse;
 
-    if (ids.length === 0) recipesToParse = recipes
-    else recipesToParse = getRecipesById(ids)
+    if (ids.length === 0) recipesToParse = recipes;
+    else recipesToParse = getRecipesById(ids);
 
     for(let i = 0; i < recipesToParse.length; i++) {
         if (
@@ -1838,18 +1838,18 @@ function keywordSearch (ids = []) {
             recipesToParse[i].description.includes(keyword) ||
             hasIngredient(recipesToParse[i], [keyword])
         ) {
-            matchR.push(recipesToParse[i])
+            matchR.push(recipesToParse[i]);
         }
     }
 
     for (let i = 1; i < matchR.length; i++) {
-        matchIds.push(matchR[i].id)
+        matchIds.push(matchR[i].id);
     }
 
     for (let i = 0; i < matchIds.length; i++) {
-        if (matchIds.indexOf(matchIds[i]) === i) result.push[i]
+        if (matchIds.indexOf(matchIds[i]) === i) result.push[i];
     }
-    return result
+    return result;
 }
 
 // FONCTION DE SUPPRESSION DES DOUBLONS
@@ -1858,17 +1858,17 @@ function filterByOccurence(array, idOccurence) {
     const result = [];
 
     array.forEach(id => {
-        if(idCount[id] === undefined) idCount[id] = 1
-        else idCount[id] += 1
+        if(idCount[id] === undefined) idCount[id] = 1;
+        else idCount[id] += 1;
     })
     Object.entries(idCount).forEach(([id, count]) => {
-        if (count === idOccurence) result.push(parseInt(id))
+        if (count === idOccurence) result.push(parseInt(id));
     })
-    return result
+    return result;
 }
 
 function hasIngredient(recipe, tag) {
-    if(recipe.ingredients.find(Object => Object.ingredient.includes(tag))) return true
-    return false
+    if(recipe.ingredients.find(Object => Object.ingredient.includes(tag))) return true;
+    return false;
 }
-updateResults()
+updateResults();
