@@ -1821,7 +1821,9 @@ function ingredientsSearch(ids = []){
     return filterByOccurence(singleTagMatchIds, tags.length);
 }
 
-// RECHERCHE IMPERATIVE
+// POUR LA RECHERCHE IMPERATIVE, l'algorythme ci-dessous de 
+// recherche par un mot saisie dans la bare de recherche
+// diffaire de celle de la recherche fonctionnelle
 function keywordSearch (ids = []) {
     const matchR = [];
     const matchIds = [];
