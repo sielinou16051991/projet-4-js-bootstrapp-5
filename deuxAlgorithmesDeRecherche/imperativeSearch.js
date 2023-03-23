@@ -1,7 +1,7 @@
 export const searchParams = {
     textSearch: '',
     ingredients: [],
-    appliences: [],
+    appliances: [],
     ustensils: []
 };
 
