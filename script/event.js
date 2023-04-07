@@ -5,7 +5,7 @@ import { searchParams } from "./index.js";
 const controls = [document.getElementById('ingredients-controls'), document.getElementById('appliances-controls'), document.getElementById('ustensils-controls')];
 const buttons = [document.getElementById('ingredients-btn'), document.getElementById('appliances-btn'), document.getElementById('ustensils-btn')];
 const inputs = [document.getElementById('ingredients-input'), document.getElementById('appliances-input'), document.getElementById('ustensils-input')];
-const searchbar = document.getElementById('searchbar');
+const searchBar = document.getElementById('searchbar');
 
 // ECOUTEUR D'EVENEMENTS
 export function addEventListeners() {
@@ -35,8 +35,8 @@ export function addEventListeners() {
             hideList(comboboxDOM, category);
         }
     }))
-   // console.log('searchbar', searchbar);
-    searchbar.addEventListener('keyup', handlerKeyup);
+   // console.log('searchBar', searchBar);
+    searchBar.addEventListener('keyup', handlerKeyup);
 }
 
 function expandList(evt){
@@ -91,13 +91,13 @@ function hideList(comboboxDOM, category){
 
 function handlerKeyup(){
     // empêcher d'autres touches que [AZ-az, espace] de déclencher la recherche
-    if (searchbar.value.length < 3 && searchParams.textSearch.length > 0) {
+    if (searchBar.value.length < 3 && searchParams.textSearch.length > 0) {
         searchParams.textSearch = ''
         updateResults()
     }
 
-    if(searchbar.value.length >= 3) {
-        searchParams.textSearch = searchbar.value
+    if(searchBar.value.length >= 3) {
+        searchParams.textSearch = searchBar.value
         console.log('searchParams.textSearch : ', searchParams.textSearch);
         updateResults()
     }
